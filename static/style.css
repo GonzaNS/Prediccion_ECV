@@ -9,7 +9,7 @@ button {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: rgb(60, 103, 112);
+    background-color: rgb(51, 92, 99);
     margin: 0;
     padding: 0;
     background-size: cover;
@@ -38,6 +38,7 @@ form h1 {
     margin: 0 auto;
     padding: 10px 0;
     width: 100%;
+    font-size: 20px;
 }
 
 .disclaimer-medico {
@@ -48,7 +49,7 @@ form h1 {
     padding: 12px 20px;
     margin: 10px 0 25px 0;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 12px;
     color: #856404;
     /* Texto oscuro para contraste */
 }
@@ -209,15 +210,6 @@ input[type="radio"]:checked+.opcion-radio {
     color: #000;
 }
 
-/* Ajustes para móviles */
-@media (max-width: 768px) {
-    .seccion-binarias-restantes {
-        grid-template-columns: 1fr;
-        /* Una columna en móviles */
-    }
-}
-
-
 
 
 
@@ -232,16 +224,7 @@ input[type="radio"]:checked+.opcion-radio {
     flex: 1;
 }
 
-@media (max-width: 768px) {
-    .seccion-binarias {
-        grid-template-columns: 1fr;
-    }
 
-    .seccion-inputs {
-        flex-direction: column;
-        gap: 0;
-    }
-}
 
 
 
@@ -279,13 +262,19 @@ input[readonly] {
 
 
 .resultado-container {
+
+
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
     background-color: rgba(255, 255, 255, 0.1);
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
-    margin-top: 30px;
+    margin-top: 10px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+
 
     width: 100%;
     /* Se ajusta al contenido sin rebasar */
@@ -296,7 +285,10 @@ input[readonly] {
 }
 
 .resultado-container h2 {
-    color: #f8f9fa;
+    color: #000000;
+    font-size: 20px;
+    padding: 10px;
+    margin-top: 5px;
 }
 
 .resultado-container p {
@@ -305,12 +297,12 @@ input[readonly] {
 }
 
 .resultado-container .positivo {
-    color: #ff4d4d;
+    color: #071d3b;
     font-weight: bold;
 }
 
 .resultado-container .negativo {
-    color: #00cc66;
+    color: #071d3b;
     font-weight: bold;
 }
 
@@ -330,6 +322,7 @@ input[readonly] {
     }
 }
 
+
 .resultado-card.positivo {
     background-color: rgba(255, 255, 255, 0.1);
     border-left: 6px solid #d00000;
@@ -343,178 +336,112 @@ input[readonly] {
 }
 
 
-
-/*=====================================RECOMENDACIONES========================================*/
-
-/* Estilos para la sección de recomendaciones */
+/* ===================================== RECOMENDACIONES ======================================== */
 .recomendaciones-container {
     margin-top: 30px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    border-left: 5px solid #17a2b8;
-
-    /* Aseguramos que no exceda el ancho */
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border-left: 4px solid #2c3e50;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .recomendaciones-container h2 {
     color: #2c3e50;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    font-weight: 600;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .lista-recomendaciones {
-    padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-left: 0;
+    margin: 0;
+    list-style-type: none;
 }
 
 .lista-recomendaciones li {
-    margin-bottom: 10px;
-    line-height: 1.6;
+    flex: 1 1 300px;
+    padding: 12px 15px;
+    line-height: 1.5;
+    background-color: #f8f9fa;
+    border-left: 3px solid #17a2b8;
+    font-size: 0.95em;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+/* Estilos para advertencias */
+.advertencia-riesgo {
+    margin: 10px auto;
+    /* Centrado horizontal con margen automático */
+    padding: 15px;
+    background-color: #fff8f8;
+    border-left: 4px solid #d32f2f;
+    font-style: normal;
+    text-align: center;
+    /* Centrado de texto */
+    max-width: 80%;
+    /* Controla el ancho del bloque */
 }
 
 .advertencia-riesgo p {
-    font-style: italic;
-    color: #000000;
+    color: #d32f2f;
+    margin: 5px 0;
+    font-weight: 600;
+    font-size: 1em;
+    line-height: 1.5;
     text-align: center;
-    margin-top: 20px;
-    font-weight: bold;
+    /* Asegura centrado para todos los párrafos */
+}
+
+.advertencia-riesgo p:first-child {
+    font-weight: 700;
     font-size: 1.1em;
 }
 
-.frase-motivacional p {
+/* Estilos para frases motivacionales */
+.frase-motivacional {
+    margin: 25px 0;
+    padding: 15px;
     font-style: italic;
-    color: #313131;
-    text-align: center;
-    margin-top: 20px;
-    font-weight: bold;
+    color: #000000;
+    text-align: left;
+    font-weight: 500;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
 }
 
+.frase-motivacional p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    color: inherit;
 
+    text-align: center;
+    /* Hereda el color del contenedor */
+}
 
-
-/*==================================================MOVILES==================================================*/
-/* ==================== MEJORAS PARA MÓVILES (max-width: 768px) ==================== */
+/* Versión para móviles */
 @media (max-width: 768px) {
-    body {
-        padding: 0;
-        background-color: #3c6770;
+    .lista-recomendaciones li {
+        flex: 1 1 100%;
     }
 
-    .contenido-principal {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
-
-    form {
-        width: 100%;
-        margin: 0 auto;
-        padding: 15px;
-        border-radius: 0;
-        box-shadow: none;
-    }
-
-    /* Ajustes para filas/columnas */
-    .fila-formulario {
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        margin: 0;
-    }
-
-    .columna-izquierda,
-    .columna-derecha {
-        width: 100%;
-        margin-bottom: 10px;
-        padding: 0 10px;
-    }
-
-    /* Preguntas binarias (1 columna) */
-    .seccion-binarias-restantes {
-        grid-template-columns: 1fr;
-        gap: 8px;
-    }
-
-    .pregunta-binaria {
-        max-width: 100%;
-        margin: 5px 0;
-        padding: 12px;
-    }
-
-    /* Inputs/selects más grandes */
-    input,
-    select {
-        width: 100% !important;
-        padding: 12px;
-        font-size: 16px;
-    }
-
-    /* Botón más destacado */
-    button {
-        padding: 15px;
-        font-size: 18px;
-        margin: 20px auto;
-        max-width: 90%;
-    }
-
-    /* Resultados */
-    .resultado-container {
-        width: 100%;
-        max-width: 100%;
-        margin: 20px auto;
-        padding: 15px;
-        border-radius: 0;
-    }
-
-    /* Recomendaciones */
     .recomendaciones-container {
         padding: 15px;
-        margin-top: 20px;
     }
-
-    /* Opciones de radio más táctiles */
-    .tabla-opciones {
-        width: 100%;
-    }
-
-    .opcion-radio {
-        padding: 14px 5px;
-        font-size: 16px;
-    }
-
-    /* Texto más legible */
-    .texto-pregunta,
-    .input-container label {
-        font-size: 16px;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-        padding: 10px 5px;
-    }
-
-    .disclaimer-medico {
-        font-size: 15px;
-        padding: 15px;
-        margin: 15px 0;
-    }
-
-    /* Añade esto para que el resultado aparezca debajo del formulario */
-    .contenido-principal {
-        flex-direction: column;
-        /* Apila verticalmente (formulario arriba, resultado abajo) */
-    }
-
-    .resultado-container {
-        order: 1;
-        /* Fuerza al resultado a aparecer después del formulario */
-        margin-top: 20px;
-        /* Espacio entre formulario y resultado */
-        width: 100%;
-    }
-
 }
+
+
+
+
 
 
 /*=======================
@@ -525,81 +452,197 @@ input[readonly] {
     right: 20px;
     width: 60px;
     height: 60px;
-    background-color: #D14836; /* color Gmail */
+    background-color: #D14836;
+    /* color Gmail */
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
     transition: background-color 0.3s ease;
-  }
-  
-  #btnCorreoFlotante:hover {
+}
+
+#btnCorreoFlotante:hover {
     background-color: #b53729;
-  }
-  
-  #btnCorreoFlotante svg {
+}
+
+#btnCorreoFlotante svg {
     width: 28px;
     height: 28px;
     fill: white;
-  }
-  
-  /* Modal */
-  .modal {
+}
+
+/* Modal */
+.modal {
     position: fixed;
     z-index: 1100;
-    left: 0; top: 0; width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    display: flex; align-items: center; justify-content: center;
-  }
-  
-  .modal-content {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
     background: white;
     padding: 20px;
     border-radius: 8px;
     width: 320px;
     max-width: 90%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     position: relative;
-  }
-  
-  .close {
+}
+
+.close {
     position: absolute;
-    top: 8px; right: 12px;
+    top: 8px;
+    right: 12px;
     font-size: 24px;
     cursor: pointer;
     font-weight: bold;
     user-select: none;
-  }
+}
 
 
 
 .input-completo,
 .btn-completo {
-  width: 100%; /* Ambos ocuparán todo el ancho del contenedor */
-  padding: 10px; /* Un poco de padding para mayor comodidad */
-  margin: 5px 0; /* Espacio entre los elementos */
-  box-sizing: border-box; /* Asegura que padding y borde no afecten el ancho */
+    width: 100%;
+    /* Ambos ocuparán todo el ancho del contenedor */
+    padding: 10px;
+    /* Un poco de padding para mayor comodidad */
+    margin: 5px 0;
+    /* Espacio entre los elementos */
+    box-sizing: border-box;
+    /* Asegura que padding y borde no afecten el ancho */
 }
 
 /* Opcional: Agregar estilos de fondo o bordes para que se vean más similares */
 .input-completo {
-  border: 1px solid #ccc;
-  border-radius: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .btn-completo {
-  background-color: #4CAF50; /* Verde para el botón */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+    background-color: #4CAF50;
+    /* Verde para el botón */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .btn-completo:hover {
-  background-color: #45a049; /* Color al pasar el mouse */
+    background-color: #45a049;
+    /* Color al pasar el mouse */
+}
+
+
+
+/*======================================PARA CELULARES============================================*/
+
+@media (max-width: 768px) {
+    body {
+        background-color: rgb(60, 103, 112);
+        padding: 10px;
+    }
+
+    .contenido-principal {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    form {
+        margin: 0;
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    form h1 {
+        font-size: 18px;
+        padding: 8px 0;
+    }
+
+    .fila-formulario {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+
+    .columna-izquierda,
+    .columna-derecha {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    input,
+    select {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .pregunta-binaria {
+        max-width: 100%;
+        margin: 5px 0;
+    }
+
+    .seccion-binarias-restantes {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .disclaimer-medico {
+        font-size: 11px;
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    form h1 {
+        font-size: 16px;
+    }
+
+    .texto-pregunta {
+        font-size: 13px;
+    }
+
+    .opcion-radio {
+        padding: 10px 5px;
+        font-size: 13px;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+        /* Firefox */
+        width: 100%;
+        max-width: 95%;
+        /* Asegura que no exceda el ancho del contenedor */
+    }
+
+    .seccion-inputs {
+        flex-direction: column;
+        /* Apila los elementos verticalmente */
+        gap: 0;
+        /* Elimina el espacio entre columnas */
+    }
+
+    .columna-inputs {
+        width: 100%;
+        /* Ocupa todo el ancho disponible */
+        margin-bottom: 0;
+        /* Elimina márgenes innecesarios */
+    }
+
 }
