@@ -218,11 +218,12 @@
 
         <div id="resultados">
             {% if prediccion is not none %}
+            {% set riesgo_alto = prob_cardio|float >= 20 %}
             <div class="resultado-container">
                 <h2>Resultado :</h2>
-                <div class="resultado-card {{ 'positivo' if prediccion == 1 else 'negativo' }}">
+                <div class="resultado-card {{ 'positivo' if riesgo_alto else 'negativo' }}">
                     <p><strong>Predicción:</strong>
-                        {% if prediccion == 1 %}
+                        {% if riesgo_alto %}
                         <span class="positivo">Alto riesgo para ECV</span>
                         {% else %}
                         <span class="negativo">Bajo riesgo para ECV</span>
@@ -235,7 +236,7 @@
                 <div class="recomendaciones-container">
                     <h2>Recomendaciones para mejorar tu salud cardíaca:</h2>
                     <ul class="lista-recomendaciones">
-                        {% if prediccion == 1 %}
+                        {% if riesgo_alto %}
                         <!-- ALTO RIESGO -->
                         <div class="advertencia-riesgo">
                             <p>⚠️ <strong>¡PELIGRO!</strong> ⚠️</p>
@@ -243,8 +244,8 @@
                                 próximos años. No espere a tener síntomas.</p>
                         </div>
 
-                        <li>Visita un cardiólogo lo más pronto posible Es fundamental que un profesional evalúe tu salud
-                            cardiovascular.</li>
+                        <li>Visita un cardiólogo lo más pronto posible. Es fundamental que un profesional evalúe tu
+                            salud cardiovascular.</li>
 
                         {% if datos.IMC and datos.IMC > 25 %}
                         <li>⁠Te recomendamos disminuir tu peso</li>
@@ -257,11 +258,8 @@
                         <li>Deja el cigarrillo, Fumar está dañando tus arterias y aumenta tu riesgo de ECV.</li>
                         {% endif %}
 
-                        <li>⁠Lleva un control minucioso de tu presión arterial, la hipertension mal controlada lleva a
-                            eventos cardiovasculares graves.</li>
-
-                        <li>⁠Controla tus enfermedades crónicas (presión arterial, colesterol y glucosa deben mantenerse
-                            en rangos adecuados).</li>
+                        <li>⁠Lleva un control minucioso de tu presión arterial.</li>
+                        <li>⁠Controla tus enfermedades crónicas (colesterol, glucosa, presión arterial).</li>
 
                         <div class="frase-motivacional">
                             <p>"Mejora tu estilo de vida ahora, no esperes más"</p>
@@ -285,10 +283,8 @@
                         <li>⁠Evita el cigarrillo, Fumar daña las arterias y aumenta el riesgo de ECV.</li>
                         {% endif %}
 
-                        <li> ⁠Lleva un control de tu presión arterial, la hipertension mal controlada lleva a eventos
-                            cardiovasculares graves</li>
-
-                        <li> ⁠⁠No olvides tu chequeo medico anual</li>
+                        <li> ⁠Lleva un control de tu presión arterial</li>
+                        <li> ⁠⁠No olvides tu chequeo médico anual</li>
 
                         <div class="frase-motivacional">
                             <p>"Nunca es tarde para mejorar tu estilo de vida"</p>
@@ -296,10 +292,11 @@
                         {% endif %}
                     </ul>
                 </div>
-
             </div>
             {% endif %}
         </div>
+
+
 
     </div>
 

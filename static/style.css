@@ -297,12 +297,12 @@ input[readonly] {
 }
 
 .resultado-container .positivo {
-    color: #071d3b;
+    color: #000000;
     font-weight: bold;
 }
 
 .resultado-container .negativo {
-    color: #071d3b;
+    color: #000000;
     font-weight: bold;
 }
 
