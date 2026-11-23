@@ -151,8 +151,8 @@ def enviar_correo():
                            recomendaciones, nombre_archivo_pdf)
 
     # Correo de Gmail
-    remitente = 'gustavorpd04@gmail.com'  # Cambia por tu correo
-    password = 'rzev yyvg ajqy isom'  # Contraseña de aplicación de Gmail
+    remitente = ''  # Cambia por tu correo
+    password = ''  # Contraseña de aplicación de Gmail
 
     mensaje = MIMEMultipart()
     mensaje['From'] = remitente
